@@ -4,10 +4,10 @@ import { Todo } from "../../../model/Todo"
 import { range } from "../../../utils/standard"
 
 type DeleteParams = {
-    todoId:string
+    id:string
 }
 
 export default function deleteHandler(params:DeleteParams) {
-   return {"deleted":true}
+   return {id:params.id}
 }
 

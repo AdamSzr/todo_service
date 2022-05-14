@@ -16,12 +16,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(200).json(getHandler({ uuid: "" }))
 
   if (req.method == HTTPMethods.POST)
-    return res.status(200).json(postHandler({ uuid: "1", text: "aaa", "deadline": Date.now() }))
+    return res.status(200).json(postHandler({...req.body}))
 
   if (req.method == HTTPMethods.DELETE)
-    return res.status(200).json(deleteHandler({ todoId: "" }))
+    return res.status(200).json(deleteHandler({...req.query} as any))
 
   if (req.method == HTTPMethods.PUT)
-  return res.status(200).json(putHandler({ id:1 }))
+  return res.status(200).json(putHandler({...req.body} as any))
 }
 
