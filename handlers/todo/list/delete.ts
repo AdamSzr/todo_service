@@ -7,6 +7,6 @@ type DeleteParams = {
 }
 
 export default function deleteHandler(params: DeleteParams) {
-   return prisma.todo.delete({ where: { id: params.id } })
+    return prisma.todo.delete({ where: { id: params.id } })
 }
 
