@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Todo" ALTER COLUMN "text" DROP NOT NULL,
+ALTER COLUMN "isDone" SET DEFAULT false,
+ALTER COLUMN "deathline" SET DEFAULT -1;

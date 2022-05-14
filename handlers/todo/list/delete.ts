@@ -1,13 +1,12 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-import { Todo } from "../../../model/Todo"
-import { range } from "../../../utils/standard"
+import prisma from "../../../db/prisma"
 
 type DeleteParams = {
-    id:string
+    id: number
 }
 
-export default function deleteHandler(params:DeleteParams) {
-   return {id:params.id}
+export default function deleteHandler(params: DeleteParams) {
+   return prisma.todo.delete({ where: { id: params.id } })
 }
 

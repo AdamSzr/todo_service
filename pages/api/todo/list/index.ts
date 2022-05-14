@@ -13,15 +13,15 @@ import { HTTPMethods, range } from '../../../../utils/standard'
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   if (req.method == HTTPMethods.GET)
-    return res.status(200).json(getHandler({ uuid: "" }))
+    return res.status(200).json(await getHandler({ userUuid: "376f79e6-360f-50f8-88a3-c64167e1c3ae" }))
 
   if (req.method == HTTPMethods.POST)
-    return res.status(200).json(postHandler({...req.body}))
+    return res.status(200).json(await postHandler({ ...req.body }))
 
   if (req.method == HTTPMethods.DELETE)
-    return res.status(200).json(deleteHandler({...req.query} as any))
+    return res.status(200).json(await deleteHandler({ id: Number(req.query.id) }))
 
   if (req.method == HTTPMethods.PUT)
-  return res.status(200).json(putHandler({...req.body} as any))
+    return res.status(200).json(await putHandler({ ...req.body } as any))
 }
 

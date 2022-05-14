@@ -10,8 +10,8 @@ generator client {
 model Todo {
   id        Int     @id @default(autoincrement())
   userUuid  String
-  text      String
+  text      String?
   title     String
-  isDone    Boolean
-  deathline Int
+  isDone    Boolean @default(false)
+  deathline Int     @default(-1)
 }

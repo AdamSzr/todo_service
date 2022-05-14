@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
+import prisma from "../../../db/prisma"
 import { Todo } from "../../../model/Todo"
 import { range } from "../../../utils/standard"
 
@@ -11,6 +12,8 @@ type PutParams = {
 }
 
 export default function putHandler(params:PutParams) {
-   return params
+    console.log({params})
+    const {id, ...update} = params
+   return prisma.todo.update({where:{id},data:{...update},})
 }
 
