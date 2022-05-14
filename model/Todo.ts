@@ -4,18 +4,19 @@ const chance = new Chance();
 
 export class Todo{
     id:number
-    userId:string
+    userUuid:string
+    title:string
     text:string
     isDone:boolean
-    deadline:number
+    deathline:number
 
     static random(){
         let item = new Todo()
-        item.id=chance.integer()
-        item.deadline=chance.date().valueOf()
+        item.userUuid = chance.guid()
+        item.title=chance.string()
         item.text = chance.paragraph()
         item.isDone = chance.bool()
-        item.userId = chance.guid()
+        item.deathline=chance.date().valueOf()
         return item
     }
 }
