@@ -68,3 +68,10 @@ Boolean.prototype.ifFalse = function (action: (value: boolean) => void): void {
 export function not(arg: boolean): boolean {
     return !arg;
 }
+
+export enum HTTPMethods {
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    DELETE = "DELETE"
+}
